@@ -1,0 +1,131 @@
+.turntable {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  padding: 20px;
+  margin: auto;
+  background-color: #c0381f;
+  box-shadow: #48373794 0 0 15px;
+  border-radius: 50%;
+
+  .panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+    background-color: #b7b7b7;
+    border-radius: 50%;
+  }
+
+  .pointer {
+    position: absolute;
+    height: 65px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    img {
+      height: 100%;
+    }
+  }
+}
+
+.illumination {
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  top: 5px;
+  left: 50%;
+  transform-origin: 0px 165px;
+  background-color: #ffe58b;
+
+  &:nth-child(2n) {
+    background-color: #fafce7;
+  }
+}
+
+.illumination-twinkling li {
+  animation: 1s twinkling 5, 200ms 5s twinkling 2; 
+}
+
+@keyframes twinkling {
+  50% {
+  background: transparent;
+  }
+}
+
+@for $row from 1 through 10 {
+  .illumination:nth-child(#{$row}) {
+    transform: rotate(($row - 1) * 36deg)
+  }
+}
+
+.sector {
+  position: absolute;
+  width: 150px;
+  height: 300px;
+  overflow: hidden;
+  left: 50%;
+  transform-origin: left center;
+
+  &:nth-child(2n) .sector-inner {
+    background-color: #fef6e1;
+  }
+
+  .sector-inner {
+    box-sizing: border-box;
+    width: 150px;
+    height: 300px;
+    padding: 25px 10px 0 95px;
+    transform: translateX(-150px) rotate(36deg);
+    transform-origin: right center;
+    border-radius: 150px 0;
+    text-align: center;
+    background-color: #fff;
+
+    span {
+      display: block;
+      transform-origin: center;
+      transform: rotate(-19deg);
+      color: #d46854;
+      font-size: 16px;
+    }
+  }
+}
+
+@for $row from 1 through 10 {
+  .sector:nth-child(#{$row}) {
+    transform: rotate(-18deg + ($row - 1) * 36deg)
+  }
+}
+
+@media(max-width: 360px) {
+  .turntable {
+    height: 250px;
+    width: 250px;
+
+    .panel {
+      height: 250px;
+      width: 250px;
+    }
+
+    .sector {
+      width: 125px;
+      height: 250px;
+
+      .sector-inner {
+        width: 125px;
+        height: 250px;
+        padding: 10px 10px 0 80px;
+        transform: translateX(-125px) rotate(36deg);
+      }
+    }
+
+    .illumination {
+      top: 5px;
+      left: 49%;
+      transform-origin: 4px 140px;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "data": [
+    { "name": "谢谢参与", "weight": 50 },
+    { "name": "5000积分", "weight": 20 },
+    { "name": "谢谢参与", "weight": 50 },
+    { "name": "100元话费", "weight": 15 },
+    { "name": "5000积分", "weight": 20 },
+    { "name": "谢谢参与", "weight": 50 },
+    { "name": "100元话费", "weight": 15 },
+    { "name": "谢谢参与", "weight": 50 },
+    { "name": "5000积分", "weight": 20 },
+    { "name": "10元话费", "weight": 8 }
+  ],
+  "result": 0
+}

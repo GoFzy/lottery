@@ -1,0 +1,46 @@
+body, ul, li {
+  margin: 0;
+  padding: 0;
+}
+html, body, #root, .main {
+  height: 100%;
+}
+
+ul, li {
+  list-style: none;
+}
+
+#root {
+  overflow: hidden;
+  background: radial-gradient(75% 35%,white, #f00000);
+
+  .title {
+    height: 35vmin;
+    margin: 5vh 0;
+    text-align: center;
+    img {
+      height: 100%;
+    }
+  }
+
+  .result {
+    font-size: 20px;
+    color: #fff;
+    text-align: left;
+    margin: 5vh 0 0 8vw;
+  }
+}
+
+@media(min-width: 680px) {
+  #root {
+    background: radial-gradient(20% 35%, white, #f00000);
+
+    .title {
+      height: 150px;
+    }
+
+    .result {
+      margin: 5vh 0 0 38vw;
+    }
+  }
+}
