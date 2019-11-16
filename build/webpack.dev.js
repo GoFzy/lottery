@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { resolve } = require('./webpack.common');
 
 const NODE_ENV = (process.env.NODE_ENV || 'development').trim();
@@ -14,7 +15,7 @@ module.exports = {
   output: {
     path: resolve('server/public/dist'),
     filename: '[name].min.js',
-    publicPath: '/dist/',
+    publicPath: '/dist/', // 打包到内存地址中，dev-server开发阶段script标签可以请求到该资源
   },
   resolve: {
     modules: [
@@ -54,6 +55,14 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': isProd ? 'production' : 'development',
     }),
+    new HtmlWebpackPlugin({
+      template: './front/page/index.html',
+      inject: false,
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+      }
+    }),
     new webpack.HashedModuleIdsPlugin({}),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
@@ -62,7 +71,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    contentBase: resolve('front/public'),
+    contentBase: resolve('front/page'),
     compress: false,
     hot: true,
     host: '0.0.0.0',
