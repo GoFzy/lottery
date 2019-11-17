@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run dev && npm run server",
+    "start": "npm run server && npm run dev",
     "server": "nodemon ./server/bin/index.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.js --progress --hot",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.dev.js --display normal --hide-modules"
